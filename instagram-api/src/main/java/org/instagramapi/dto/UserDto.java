@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 public class UserDto {
-    private int id;
+    private Integer id;
     private String username;
     private String email;
     private String name;

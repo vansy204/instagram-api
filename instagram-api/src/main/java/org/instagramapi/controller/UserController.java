@@ -1,6 +1,5 @@
 package org.instagramapi.controller;
 
-import lombok.Getter;
 import org.instagramapi.exceptions.UserException;
 import org.instagramapi.modal.User;
 import org.instagramapi.response.MessageResponse;

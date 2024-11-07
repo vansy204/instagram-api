@@ -16,7 +16,7 @@ import java.util.Set;
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
     private String caption;
     private String image;
     private String location;

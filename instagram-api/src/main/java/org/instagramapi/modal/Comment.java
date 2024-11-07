@@ -14,7 +14,7 @@ import java.util.Set;
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
     @Embedded
     @AttributeOverrides({
             @AttributeOverride(name = "id",column = @Column(name = "user_id")),

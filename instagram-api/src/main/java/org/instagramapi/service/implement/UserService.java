@@ -1,24 +1,26 @@
-package org.instagramapi.service;
+package org.instagramapi.service.implement;
 
 import org.instagramapi.dto.UserDto;
 import org.instagramapi.exceptions.UserException;
 import org.instagramapi.modal.User;
 import org.instagramapi.repository.UserRepository;
+import org.instagramapi.security.JwtTokenClaims;
+import org.instagramapi.security.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserServiceImpl  implements UserService {
+public class UserService implements org.instagramapi.service.UserService {
     @Autowired
     private UserRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
-
+    @Autowired
+    private JwtTokenProvider jwtTokenProvider;
     @Override
     public User registerUser(User user) throws UserException {
         Optional <User> isEmailExist = userRepository.findByEmail(user.getEmail());
@@ -43,7 +45,7 @@ public class UserServiceImpl  implements UserService {
     }
 
     @Override
-    public User findUserById(int id) throws UserException {
+    public User findUserById(Integer id) throws UserException {
         Optional<User> user = userRepository.findById(id);
         if(user.isPresent()) {
             return user.get();
@@ -53,7 +55,14 @@ public class UserServiceImpl  implements UserService {
 
     @Override
     public User findUserProfile(String token) throws UserException {
-        return null;
+        token = token.substring(7);
+        JwtTokenClaims jwtTokenClaims = jwtTokenProvider.getClamsFromToken(token);
+        String email = jwtTokenClaims.getUsername();
+        Optional<User> opt = userRepository.findByEmail(email);
+        if(opt.isPresent()) {
+            return opt.get();
+        }
+        throw new UserException("Invalid token...");
     }
 
     @Override
@@ -66,7 +75,7 @@ public class UserServiceImpl  implements UserService {
     }
 
     @Override
-    public String followUser(int reqUserId, int followerId) throws UserException {
+    public String followUser(Integer reqUserId, Integer followerId) throws UserException {
         User reqUser = findUserById(reqUserId);
         User followUser = findUserById(followerId);
 
@@ -94,7 +103,7 @@ public class UserServiceImpl  implements UserService {
     }
 
     @Override
-    public String unFollowUser(int reqUserId, int followerId) throws UserException {
+    public String unFollowUser(Integer reqUserId, Integer followerId) throws UserException {
         User reqUser = findUserById(reqUserId);
         User followUser = findUserById(followerId);
 

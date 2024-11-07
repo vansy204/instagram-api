@@ -1,4 +1,4 @@
-package org.instagramapi.service;
+package org.instagramapi.service.implement;
 
 import org.instagramapi.modal.User;
 import org.instagramapi.repository.UserRepository;

@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 public class Story {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
     @Embedded
 //    @Convert(converter = GenericMapper.class)
     @AttributeOverrides({
