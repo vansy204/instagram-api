@@ -2,7 +2,7 @@ package org.instagramapi.service.implement;
 
 import org.instagramapi.dto.UserDto;
 import org.instagramapi.exceptions.UserException;
-import org.instagramapi.modal.User;
+import org.instagramapi.model.User;
 import org.instagramapi.repository.UserRepository;
 import org.instagramapi.security.JwtTokenClaims;
 import org.instagramapi.security.JwtTokenProvider;

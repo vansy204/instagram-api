@@ -1,6 +1,6 @@
 package org.instagramapi.service.implement;
 
-import org.instagramapi.modal.User;
+import org.instagramapi.model.User;
 import org.instagramapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;

@@ -1,9 +1,7 @@
 package org.instagramapi.service;
 
-import jdk.jshell.spi.ExecutionControl;
 import org.instagramapi.exceptions.UserException;
-import org.instagramapi.modal.User;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.instagramapi.model.User;
 
 import java.util.List;
 

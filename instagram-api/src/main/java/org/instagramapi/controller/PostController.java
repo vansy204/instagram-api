@@ -2,8 +2,8 @@ package org.instagramapi.controller;
 
 import org.instagramapi.exceptions.PostException;
 import org.instagramapi.exceptions.UserException;
-import org.instagramapi.modal.Post;
-import org.instagramapi.modal.User;
+import org.instagramapi.model.Post;
+import org.instagramapi.model.User;
 import org.instagramapi.response.MessageResponse;
 import org.instagramapi.service.UserService;
 import org.instagramapi.service.implement.PostService;

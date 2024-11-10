@@ -2,7 +2,7 @@ package org.instagramapi.service;
 
 import org.instagramapi.exceptions.PostException;
 import org.instagramapi.exceptions.UserException;
-import org.instagramapi.modal.Post;
+import org.instagramapi.model.Post;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package org.instagramapi.modal;
+package org.instagramapi.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
