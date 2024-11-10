@@ -29,6 +29,12 @@ public class GlobalExceptions {
 
         return new ResponseEntity<ErrorDetails>(err, HttpStatus.BAD_REQUEST);
     }
+    @ExceptionHandler(StoryException.class)
+    public ResponseEntity<ErrorDetails> StoryExceptionHandler(StoryException ue, WebRequest req) {
+        ErrorDetails err = new ErrorDetails(ue.getMessage(),req.getDescription(false), LocalDateTime.now());
+
+        return new ResponseEntity<ErrorDetails>(err, HttpStatus.BAD_REQUEST);
+    }
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorDetails> MethodArgumentNotValidExceptionHandler(MethodArgumentNotValidException me, WebRequest req){
 

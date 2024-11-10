@@ -38,6 +38,4 @@ public class CommentController {
         Comment comment = commentService.unlikeComment(commentId,user.getId());
         return new ResponseEntity<Comment>(comment, HttpStatus.OK);
     }
-
-
 }
