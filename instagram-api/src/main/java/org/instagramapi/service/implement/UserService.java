@@ -87,11 +87,11 @@ public class UserService implements org.instagramapi.service.UserService {
         follower.setUsername(reqUser.getUsername());
 
         UserDto following = new UserDto();
-        following.setEmail(follower.getEmail());
-        following.setId(follower.getId());
-        following.setName(follower.getName());
-        following.setUserImage(follower.getUserImage());
-        following.setUsername(follower.getUsername());
+        following.setEmail(followUser.getEmail());
+        following.setId(followUser.getId());
+        following.setName(followUser.getName());
+        following.setUserImage(followUser.getImage());
+        following.setUsername(followUser.getUsername());
 
         reqUser.getFollowing().add(following);
         followUser.getFollower().add(follower);
@@ -173,7 +173,7 @@ public class UserService implements org.instagramapi.service.UserService {
         if(updatedUser.getWebsite() !=null){
             existingUser.setWebsite(updatedUser.getWebsite());
         }
-        if(updatedUser.getId() ==(existingUser.getId())){
+        if(updatedUser.getId().equals(existingUser.getId())){
             return userRepository.save(existingUser);
         }
         throw new UserException("You can't update this user ");
