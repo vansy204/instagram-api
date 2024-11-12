@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/stories")
+
 public class StoryController {
     @Autowired
     private StoryService storyService;
