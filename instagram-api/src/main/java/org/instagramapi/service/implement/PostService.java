@@ -10,6 +10,7 @@ import org.instagramapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,6 +33,7 @@ public class PostService implements org.instagramapi.service.PostService {
         userDto.setName(user.getName());
 
         post.setUser(userDto);
+        post.setCreatedAt(LocalDateTime.now());
         Post createdPost = postRepository.save(post);
         return createdPost;
     }
@@ -91,7 +93,7 @@ public class PostService implements org.instagramapi.service.PostService {
         Post post = findPostById(postId);
         User user = userService.findUserById(userId);
 
-        if(!user.getSavedPost().contains(post)){
+        if(user.getSavedPost().contains(post)){
             user.getSavedPost().remove(post);
             userRepository.save(user);
         }

@@ -1,5 +1,6 @@
 package org.instagramapi.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.instagramapi.dto.UserDto;
@@ -25,6 +26,7 @@ public class Comment {
     @ElementCollection
     @Embedded
     private Set<UserDto> likeByUser = new HashSet<UserDto>( );
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     private LocalDateTime createdAt;
 
 }

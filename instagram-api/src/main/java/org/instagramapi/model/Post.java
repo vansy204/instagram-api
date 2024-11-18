@@ -1,5 +1,6 @@
 package org.instagramapi.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,6 +21,7 @@ public class Post {
     private String caption;
     private String image;
     private String location;
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS")
     private LocalDateTime createdAt;
     @Embedded
     @AttributeOverrides({
